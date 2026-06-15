@@ -4,12 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>設備維修清單管理系統</title>
-    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=_952ZE50xCGtpQi_EdPlISsNX4A8m8GP4lr4omINUSsXYOdP73NBWVH3ZICr43N9ct69Jf2MszjSM2HiVf2PCrDJnZ2Xugsh23my8_dpfBr6wJw2cCUWrQyEi39RNoHpHKrZrwpjzdYOxNpMP19rLonGX6-JALfc5PYZoBl5s6f9JqYQMA3GidiEy05PeHnqltVFCa1p9vgfsNKElqnvs_c7f8DbwgT2zeQO0g5usWlop80PBVgaKhslNtxMNL_UECXDm3ZgZ_V5LYbHCpkK-KWmOxOL1ZUG-or6bl03mw74xixbhoq4JezUltTsO9FiAa-T8OKF_r3-T32cOSIvxqJYtD88cQwZetCBffvx7_YSH75w0JqvE1Ng8bj4hEtTjjv64B5FZryEFIyjCPuFCWKpHkjFoBmEKlnYPR9iTly1W4QOxfceRIb9DE25BEYNGDqSLEuDBeRDLArNtxy3n2klNbQ9VTeJ-FjSYoDgm9bzzWm8psX3worFpArzqR9E0v851qh5ESLYYRUOjltTv35tQycLE9Yg_i6ieAhnicN0y1eA01VUeyWGE4CCtSW0f-XYXXh69s5uMDDNDD3LLupU4hYohAfDjJrkx8TxxuyjCGBjVRTGj8kMMa1RmI8gktqT6TQAEcE0ac3LbiiTRx0jEFcpLsQ0aet1asXTOiiwzAfhfpSSIZ1xUTfPunOBTfuTN6KjYCWFUR6X1Op23VOu_5ge4u5I2BlhgLydYSWtrVEwaO3SWqy9s7VuxR5FuQXC4bHs0DdIU6wCFdYsmhxP7whjas4RMJ9qZjwdpIl10rv-jIHBdVJKMCplyfV5" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9wcm9kLWNoYXQta2ltaS50b3MtY24tYmVpamluZy52b2xjZXMuY29tL2tpbWktZnMvb2tjL3c0ZXRvbDViYnZ3c2Evb3V0cHV0LyVFOCVBOCVBRCVFNSU4MiU5OSVFNyVCNiVBRCVFNCVCRiVBRSVFNiVCOCU4NSVFNSU5NiVBRS5odG1sP1gtVG9zLUFsZ29yaXRobT1UT1M0LUhNQUMtU0hBMjU2JlgtVG9zLUNyZWRlbnRpYWw9QUtMVFlUSmxOamd3TWpZMlpEQmtOREZpWW1JNVlXTmlaREJsWm1GbVlqSXpaVEElMmYyMDI2MDYxNSUyZmNuLWJlaWppbmclMmZ0b3MlMmZyZXF1ZXN0JlgtVG9zLURhdGU9MjAyNjA2MTVUMDUzNDE4WiZYLVRvcy1FeHBpcmVzPTUxODQwMCZYLVRvcy1TaWduYXR1cmU9MGJiZmVmMjQ4NjZmYzY5MDE1ZTJiMWM2OTk2NGJjYjFkNjg5NjFhN2M0NWQ4Y2VhYjFiOWUzNWY3ZTk4Y2UxMCZYLVRvcy1TaWduZWRIZWFkZXJzPWhvc3QmcmVzcG9uc2UtY29udGVudC1kaXNwb3NpdGlvbj1hdHRhY2htZW50JTNiJTIwZmlsZW5hbWUlMmElM2RVVEYtOCUyNyUyNyUyNUU4JTI1QTglMjVBRCUyNUU1JTI1ODIlMjU5OSUyNUU3JTI1QjYlMjVBRCUyNUU0JTI1QkYlMjVBRSUyNUU2JTI1QjglMjU4NSUyNUU1JTI1OTYlMjVBRS5odG1s"/><style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: "Microsoft JhengHei", "PingFang TC", "Heiti TC", sans-serif;
@@ -31,6 +27,7 @@
             border-radius: 12px;
             margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
         }
 
         header h1 {
@@ -41,6 +38,28 @@
         header p {
             opacity: 0.9;
             font-size: 15px;
+        }
+
+        .settings-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .settings-btn:hover {
+            background: rgba(255,255,255,0.3);
         }
 
         .stats-bar {
@@ -59,21 +78,11 @@
             transition: transform 0.2s;
         }
 
-        .stat-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .stat-card.pending {
-            border-top: 4px solid #e53e3e;
-        }
-
-        .stat-card.completed {
-            border-top: 4px solid #38a169;
-        }
-
-        .stat-card.total {
-            border-top: 4px solid #3182ce;
-        }
+        .stat-card:hover { transform: translateY(-2px); }
+        .stat-card.pending { border-top: 4px solid #e53e3e; }
+        .stat-card.completed { border-top: 4px solid #38a169; }
+        .stat-card.total { border-top: 4px solid #3182ce; }
+        .stat-card.logs { border-top: 4px solid #805ad5; }
 
         .stat-number {
             font-size: 36px;
@@ -84,6 +93,7 @@
         .stat-card.pending .stat-number { color: #e53e3e; }
         .stat-card.completed .stat-number { color: #38a169; }
         .stat-card.total .stat-number { color: #3182ce; }
+        .stat-card.logs .stat-number { color: #805ad5; }
 
         .stat-label {
             color: #718096;
@@ -121,30 +131,13 @@
             transform: translateY(-1px);
         }
 
-        .btn-primary {
-            background: #3182ce;
-            color: white;
-        }
-
-        .btn-success {
-            background: #38a169;
-            color: white;
-        }
-
-        .btn-warning {
-            background: #d69e2e;
-            color: white;
-        }
-
-        .btn-danger {
-            background: #e53e3e;
-            color: white;
-        }
-
-        .btn-secondary {
-            background: #718096;
-            color: white;
-        }
+        .btn-primary { background: #3182ce; color: white; }
+        .btn-success { background: #38a169; color: white; }
+        .btn-warning { background: #d69e2e; color: white; }
+        .btn-danger { background: #e53e3e; color: white; }
+        .btn-secondary { background: #718096; color: white; }
+        .btn-info { background: #4299e1; color: white; }
+        .btn-purple { background: #805ad5; color: white; }
 
         .filter-group {
             display: flex;
@@ -201,9 +194,7 @@
             border-collapse: collapse;
         }
 
-        thead {
-            background: #f7fafc;
-        }
+        thead { background: #f7fafc; }
 
         th {
             padding: 14px 16px;
@@ -222,9 +213,7 @@
             vertical-align: middle;
         }
 
-        tr:hover {
-            background: #f7fafc;
-        }
+        tr:hover { background: #f7fafc; }
 
         .status-badge {
             display: inline-block;
@@ -259,29 +248,11 @@
             transition: all 0.2s;
         }
 
-        .action-btn:hover {
-            opacity: 0.8;
-        }
-
-        .action-btn.edit {
-            background: #ebf8ff;
-            color: #3182ce;
-        }
-
-        .action-btn.complete {
-            background: #f0fff4;
-            color: #38a169;
-        }
-
-        .action-btn.delete {
-            background: #fff5f5;
-            color: #e53e3e;
-        }
-
-        .action-btn.reopen {
-            background: #fffaf0;
-            color: #d69e2e;
-        }
+        .action-btn:hover { opacity: 0.8; }
+        .action-btn.edit { background: #ebf8ff; color: #3182ce; }
+        .action-btn.complete { background: #f0fff4; color: #38a169; }
+        .action-btn.delete { background: #fff5f5; color: #e53e3e; }
+        .action-btn.reopen { background: #fffaf0; color: #d69e2e; }
 
         .modal-overlay {
             display: none;
@@ -297,15 +268,13 @@
             padding: 20px;
         }
 
-        .modal-overlay.active {
-            display: flex;
-        }
+        .modal-overlay.active { display: flex; }
 
         .modal {
             background: white;
             border-radius: 12px;
             width: 100%;
-            max-width: 600px;
+            max-width: 700px;
             max-height: 90vh;
             overflow-y: auto;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
@@ -415,62 +384,32 @@
             color: #718096;
         }
 
-        @media print {
-            .controls, .action-btns, .modal-overlay, header p {
-                display: none !important;
-            }
-
-            header {
-                background: white !important;
-                color: black !important;
-                box-shadow: none !important;
-                border: 2px solid #333;
-            }
-
-            body {
-                background: white;
-            }
-
-            .table-container {
-                box-shadow: none;
-                border: 1px solid #ddd;
-            }
-
-            .stats-bar {
-                display: none;
-            }
+        .settings-section {
+            background: #f7fafc;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
 
-        @media (max-width: 768px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .search-box {
-                width: 100%;
-            }
-
-            .filter-group {
-                justify-content: center;
-            }
-
-            th, td {
-                padding: 10px 8px;
-                font-size: 13px;
-            }
-
-            .action-btns {
-                flex-direction: column;
-            }
+        .settings-section h3 {
+            font-size: 16px;
+            color: #2d3748;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .date-display {
-            white-space: nowrap;
+        .settings-section p {
+            font-size: 13px;
+            color: #718096;
+            margin-bottom: 12px;
+        }
+
+        .data-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         .device-id {
@@ -482,13 +421,142 @@
             border-radius: 4px;
             font-size: 13px;
         }
+
+        .user-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .log-entry {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px;
+            border-left: 3px solid #805ad5;
+            background: #faf5ff;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 10px;
+        }
+
+        .log-time {
+            font-size: 12px;
+            color: #805ad5;
+            font-weight: 600;
+            white-space: nowrap;
+            min-width: 140px;
+        }
+
+        .log-content {
+            flex: 1;
+        }
+
+        .log-user {
+            font-weight: 600;
+            color: #553c9a;
+        }
+
+        .log-action {
+            color: #4a5568;
+        }
+
+        .log-detail {
+            font-size: 13px;
+            color: #718096;
+            margin-top: 4px;
+        }
+
+        .log-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 6px;
+        }
+
+        .log-add { background: #c6f6d5; color: #276749; }
+        .log-edit { background: #ebf8ff; color: #3182ce; }
+        .log-delete { background: #fed7d7; color: #c53030; }
+        .log-complete { background: #c6f6d5; color: #276749; }
+        .log-reopen { background: #feebc8; color: #975a16; }
+
+        .required-label::after {
+            content: " *";
+            color: #e53e3e;
+        }
+
+        @media print {
+            .controls, .action-btns, .modal-overlay, header p, .settings-btn, .user-info {
+                display: none !important;
+            }
+
+            header {
+                background: white !important;
+                color: black !important;
+                box-shadow: none !important;
+                border: 2px solid #333;
+            }
+
+            body { background: white; }
+            .table-container { box-shadow: none; border: 1px solid #ddd; }
+            .stats-bar { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+            .controls { flex-direction: column; align-items: stretch; }
+            .search-box { width: 100%; }
+            .filter-group { justify-content: center; }
+            th, td { padding: 10px 8px; font-size: 13px; }
+            .action-btns { flex-direction: column; }
+            .settings-btn { position: static; margin-top: 10px; }
+            header { padding: 20px; }
+            .log-time { min-width: auto; }
+            .log-entry { flex-direction: column; }
+        }
+
+        .date-display { white-space: nowrap; }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #2d3748;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 2000;
+            display: none;
+            animation: slideIn 0.3s ease;
+        }
+
+        .toast.show { display: block; }
+
+        @keyframes slideIn {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
     </style>
+<base target="_blank">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🔧 設備維修清單管理系統</h1>
-            <p>澳門展智服務協會 · 啟智早期訓練中心 · 設備維修記錄</p>
+            <h1 id="pageTitle">🔧 設備維修清單管理系統</h1>
+            <p id="pageSubtitle">設備維修記錄</p>
+            <div class="user-info" id="userInfo" style="display:none;">
+                <span>👤</span> <span id="userNameDisplay"></span>
+            </div>
+            <button class="settings-btn" onclick="openSettings()">
+                <span>⚙️</span> 設置
+            </button>
         </header>
 
         <div class="stats-bar">
@@ -504,12 +572,19 @@
                 <div class="stat-label">設備總數</div>
                 <div class="stat-number" id="totalCount">0</div>
             </div>
+            <div class="stat-card logs" onclick="openLogModal()" style="cursor:pointer;">
+                <div class="stat-label">操作記錄</div>
+                <div class="stat-number" id="logCount">0</div>
+            </div>
         </div>
 
         <div class="controls">
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
                 <button class="btn btn-primary" onclick="openModal()">
                     <span>➕</span> 新增設備
+                </button>
+                <button class="btn btn-purple" onclick="openLogModal()">
+                    <span>📋</span> 查看記錄
                 </button>
                 <button class="btn btn-secondary" onclick="exportToExcel()">
                     <span>📊</span> 匯出Excel
@@ -559,6 +634,7 @@
         </div>
     </div>
 
+    <!-- 設備編輯 Modal -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal">
             <div class="modal-header">
@@ -632,44 +708,104 @@
         </div>
     </div>
 
-    <script>
-        // 初始化資料（示範用，實際使用時會從 localStorage 讀取）
-        let devices = JSON.parse(localStorage.getItem('repairDevices')) || [
-            {
-                id: 'PC-001',
-                name: '辦公室電腦',
-                type: '電腦設備',
-                location: '辦公室A',
-                issue: '無法開機，電源指示燈不亮',
-                reportDate: '2026-06-10',
-                repairDate: '',
-                status: 'pending',
-                notes: '已聯絡供應商上門檢查'
-            },
-            {
-                id: 'PR-002',
-                name: '彩色打印機',
-                type: '打印機',
-                location: '文儀室',
-                issue: '卡紙，無法正常進紙',
-                reportDate: '2026-06-08',
-                repairDate: '2026-06-12',
-                status: 'completed',
-                notes: '已更換進紙滾輪'
-            },
-            {
-                id: 'NET-003',
-                name: '無線路由器',
-                type: '網絡設備',
-                location: '機房',
-                issue: 'WiFi 訊號不穩定，經常斷線',
-                reportDate: '2026-06-14',
-                repairDate: '',
-                status: 'pending',
-                notes: ''
-            }
-        ];
+    <!-- 設置 Modal -->
+    <div class="modal-overlay" id="settingsOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>⚙️ 系統設置</h2>
+                <button class="modal-close" onclick="closeSettings()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h3>🏢 機構資料</h3>
+                    <p>設置您的機構名稱，顯示在頁面頂部</p>
+                    <div class="form-group">
+                        <label>機構名稱</label>
+                        <input type="text" id="settingOrgName" placeholder="例如：澳門展智服務協會">
+                    </div>
+                    <div class="form-group">
+                        <label>中心/部門名稱</label>
+                        <input type="text" id="settingCenterName" placeholder="例如：啟智早期訓練中心">
+                    </div>
+                </div>
 
+                <div class="settings-section">
+                    <h3>👤 用戶資料 <span style="color:#e53e3e;font-size:13px;">（必填，用於記錄操作）</span></h3>
+                    <p>請輸入您的名字，所有操作（新增、編輯、刪除）都會記錄操作人</p>
+                    <div class="form-group">
+                        <label class="required-label">操作人姓名</label>
+                        <input type="text" id="settingUserName" placeholder="例如：陳大文">
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>📍 預設設置</h3>
+                    <p>新增設備時的預設值，加快輸入速度</p>
+                    <div class="form-group">
+                        <label>預設位置</label>
+                        <input type="text" id="settingDefaultLocation" placeholder="例如：辦公室">
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>💾 資料管理</h3>
+                    <p>備份或還原您的設備資料，每台電腦資料獨立儲存</p>
+                    <div class="data-actions">
+                        <button class="btn btn-info" onclick="exportData()">
+                            <span>💾</span> 備份資料
+                        </button>
+                        <button class="btn btn-warning" onclick="document.getElementById('importFile').click()">
+                            <span>📥</span> 還原資料
+                        </button>
+                        <input type="file" id="importFile" style="display:none" accept=".json" onchange="importData(event)">
+                        <button class="btn btn-danger" onclick="clearAllData()">
+                            <span>🗑️</span> 清空資料
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeSettings()">取消</button>
+                <button class="btn btn-primary" onclick="saveSettings()">儲存設置</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 操作記錄 Modal -->
+    <div class="modal-overlay" id="logOverlay">
+        <div class="modal" style="max-width:800px;">
+            <div class="modal-header">
+                <h2>📋 操作記錄</h2>
+                <button class="modal-close" onclick="closeLogModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="logBody" style="max-height:60vh; overflow-y:auto;">
+                <div class="empty-state" id="logEmptyState">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                    <h3>暫無操作記錄</h3>
+                    <p>進行新增、編輯、刪除等操作後會自動記錄</p>
+                </div>
+                <div id="logList"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeLogModal()">關閉</button>
+                <button class="btn btn-secondary" onclick="exportLogs()">📊 匯出記錄</button>
+                <button class="btn btn-danger" onclick="clearLogs()">🗑️ 清空記錄</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // ========== 資料管理 ==========
+        let devices = JSON.parse(localStorage.getItem('repairDevices')) || [];
+        let settings = JSON.parse(localStorage.getItem('repairSettings')) || {};
+        let logs = JSON.parse(localStorage.getItem('repairLogs')) || [];
         let currentFilter = 'all';
         let editingId = null;
 
@@ -677,6 +813,163 @@
             localStorage.setItem('repairDevices', JSON.stringify(devices));
         }
 
+        function saveSettingsToStorage() {
+            localStorage.setItem('repairSettings', JSON.stringify(settings));
+        }
+
+        function saveLogsToStorage() {
+            localStorage.setItem('repairLogs', JSON.stringify(logs));
+        }
+
+        // ========== 操作記錄 ==========
+        function addLog(action, deviceId, deviceName, detail) {
+            const userName = settings.userName || '未知用戶';
+            const log = {
+                id: Date.now() + Math.random().toString(36).substr(2, 9),
+                timestamp: new Date().toISOString(),
+                user: userName,
+                action: action,
+                deviceId: deviceId || '-',
+                deviceName: deviceName || '-',
+                detail: detail || ''
+            };
+            logs.unshift(log);
+            // 最多保留 500 條記錄
+            if (logs.length > 500) logs = logs.slice(0, 500);
+            saveLogsToStorage();
+            updateLogCount();
+        }
+
+        function updateLogCount() {
+            document.getElementById('logCount').textContent = logs.length;
+        }
+
+        function formatLogTime(isoString) {
+            const d = new Date(isoString);
+            const date = d.getFullYear() + '-' + 
+                        String(d.getMonth()+1).padStart(2,'0') + '-' + 
+                        String(d.getDate()).padStart(2,'0');
+            const time = String(d.getHours()).padStart(2,'0') + ':' + 
+                         String(d.getMinutes()).padStart(2,'0') + ':' + 
+                         String(d.getSeconds()).padStart(2,'0');
+            return date + ' ' + time;
+        }
+
+        function getActionLabel(action) {
+            const labels = {
+                'add': '新增',
+                'edit': '編輯',
+                'delete': '刪除',
+                'complete': '標記完成',
+                'reopen': '重新開啟'
+            };
+            return labels[action] || action;
+        }
+
+        function getActionBadgeClass(action) {
+            const classes = {
+                'add': 'log-add',
+                'edit': 'log-edit',
+                'delete': 'log-delete',
+                'complete': 'log-complete',
+                'reopen': 'log-reopen'
+            };
+            return classes[action] || 'log-edit';
+        }
+
+        function renderLogs() {
+            const logList = document.getElementById('logList');
+            const emptyState = document.getElementById('logEmptyState');
+
+            if (logs.length === 0) {
+                logList.innerHTML = '';
+                emptyState.style.display = 'block';
+            } else {
+                emptyState.style.display = 'none';
+                logList.innerHTML = logs.map(log => `
+                    <div class="log-entry">
+                        <div class="log-time">${formatLogTime(log.timestamp)}</div>
+                        <div class="log-content">
+                            <div>
+                                <span class="log-user">${log.user}</span>
+                                <span class="log-action">${getActionLabel(log.action)}</span>
+                                <span class="log-badge ${getActionBadgeClass(log.action)}">${getActionLabel(log.action)}</span>
+                            </div>
+                            <div class="log-detail">
+                                設備：<strong>${log.deviceName}</strong>（${log.deviceId}）
+                                ${log.detail ? '<br>' + log.detail : ''}
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function openLogModal() {
+            renderLogs();
+            document.getElementById('logOverlay').classList.add('active');
+        }
+
+        function closeLogModal() {
+            document.getElementById('logOverlay').classList.remove('active');
+        }
+
+        function exportLogs() {
+            if (logs.length === 0) {
+                alert('暫無記錄可匯出');
+                return;
+            }
+            const headers = ['時間', '操作人', '操作類型', '設備編號', '設備名稱', '詳情'];
+            const rows = logs.map(l => [
+                formatLogTime(l.timestamp),
+                l.user,
+                getActionLabel(l.action),
+                l.deviceId,
+                l.deviceName,
+                l.detail
+            ]);
+
+            let csv = '\uFEFF' + headers.join(',') + '\n';
+            rows.forEach(row => {
+                csv += row.map(cell => `"${(cell || '').replace(/"/g, '""')}"`).join(',') + '\n';
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = '操作記錄_' + new Date().toISOString().split('T')[0] + '.csv';
+            link.click();
+            showToast('記錄已匯出！');
+        }
+
+        function clearLogs() {
+            if (!confirm('確定要清空所有操作記錄嗎？共 ' + logs.length + ' 條')) return;
+            logs = [];
+            saveLogsToStorage();
+            renderLogs();
+            updateLogCount();
+            showToast('記錄已清空');
+        }
+
+        // ========== 初始化設置 ==========
+        function initSettings() {
+            if (settings.orgName) {
+                document.getElementById('pageTitle').innerHTML = '🔧 ' + (settings.orgName || '設備維修清單管理系統');
+            }
+            if (settings.centerName) {
+                document.getElementById('pageSubtitle').textContent = 
+                    (settings.orgName || '') + (settings.orgName && settings.centerName ? ' · ' : '') + (settings.centerName || '') + ' · 設備維修記錄';
+            }
+            if (settings.userName) {
+                document.getElementById('userNameDisplay').textContent = settings.userName;
+                document.getElementById('userInfo').style.display = 'inline-flex';
+            } else {
+                document.getElementById('userInfo').style.display = 'none';
+            }
+            updateLogCount();
+        }
+
+        // ========== 工具函數 ==========
         function generateId() {
             const prefix = 'DEV';
             const num = String(devices.length + 1).padStart(3, '0');
@@ -691,6 +984,27 @@
                    d.getFullYear();
         }
 
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        function getCurrentUser() {
+            return settings.userName || '未知用戶';
+        }
+
+        function checkUserName() {
+            if (!settings.userName) {
+                alert('請先點擊右上角「設置」，填寫您的「操作人姓名」，這樣才能記錄是誰做的操作。');
+                openSettings();
+                return false;
+            }
+            return true;
+        }
+
+        // ========== 渲染表格 ==========
         function renderTable() {
             const tbody = document.getElementById('tableBody');
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
@@ -706,7 +1020,6 @@
                 return matchFilter && matchSearch;
             });
 
-            // 排序：待維修在前，按報修日期倒序
             filtered.sort((a, b) => {
                 if (a.status !== b.status) {
                     return a.status === 'pending' ? -1 : 1;
@@ -765,12 +1078,19 @@
             renderTable();
         }
 
+        // ========== 設備 Modal ==========
         function openModal() {
+            if (!checkUserName()) return;
             editingId = null;
             document.getElementById('modalTitle').textContent = '新增設備';
             document.getElementById('deviceForm').reset();
             document.getElementById('deviceId').value = generateId();
             document.getElementById('reportDate').value = new Date().toISOString().split('T')[0];
+
+            if (settings.defaultLocation) {
+                document.getElementById('location').value = settings.defaultLocation;
+            }
+
             document.getElementById('modalOverlay').classList.add('active');
         }
 
@@ -779,6 +1099,7 @@
         }
 
         function editDevice(id) {
+            if (!checkUserName()) return;
             const device = devices.find(d => d.id === id);
             if (!device) return;
 
@@ -797,6 +1118,8 @@
         }
 
         function saveDevice() {
+            if (!checkUserName()) return;
+
             const id = document.getElementById('deviceId').value.trim();
             const name = document.getElementById('deviceName').value.trim();
 
@@ -820,7 +1143,17 @@
             if (editingId) {
                 const idx = devices.findIndex(d => d.id === editingId);
                 if (idx !== -1) {
+                    const oldDevice = devices[idx];
                     devices[idx] = deviceData;
+
+                    // 記錄編輯操作
+                    let detail = [];
+                    if (oldDevice.name !== deviceData.name) detail.push('名稱：' + oldDevice.name + ' → ' + deviceData.name);
+                    if (oldDevice.status !== deviceData.status) detail.push('狀態：' + (oldDevice.status==='pending'?'待維修':'維修完畢') + ' → ' + (deviceData.status==='pending'?'待維修':'維修完畢'));
+                    if (oldDevice.issue !== deviceData.issue) detail.push('故障描述已更新');
+                    if (oldDevice.location !== deviceData.location) detail.push('位置：' + oldDevice.location + ' → ' + deviceData.location);
+
+                    addLog('edit', deviceData.id, deviceData.name, detail.join('；') || '修改設備資料');
                 }
             } else {
                 if (devices.find(d => d.id === id)) {
@@ -828,36 +1161,154 @@
                     return;
                 }
                 devices.push(deviceData);
+                addLog('add', deviceData.id, deviceData.name, '新增設備：' + (deviceData.type || '未分類') + '，位置：' + (deviceData.location || '未指定'));
             }
 
             saveToStorage();
             closeModal();
             renderTable();
+            showToast('儲存成功！');
         }
 
         function toggleStatus(id) {
+            if (!checkUserName()) return;
             const device = devices.find(d => d.id === id);
             if (!device) return;
 
             if (device.status === 'pending') {
                 device.status = 'completed';
                 device.repairDate = new Date().toISOString().split('T')[0];
+                addLog('complete', device.id, device.name, '標記為維修完畢，日期：' + formatDate(device.repairDate));
             } else {
                 device.status = 'pending';
+                const oldDate = device.repairDate;
                 device.repairDate = '';
+                addLog('reopen', device.id, device.name, '重新開啟維修單，原完成日期：' + formatDate(oldDate));
             }
 
             saveToStorage();
             renderTable();
+            showToast(device.status === 'completed' ? '已標記為維修完畢' : '已重新開啟維修單');
         }
 
         function deleteDevice(id) {
-            if (!confirm('確定要刪除這項設備記錄嗎？')) return;
+            if (!checkUserName()) return;
+            const device = devices.find(d => d.id === id);
+            if (!device) return;
+
+            if (!confirm('確定要刪除設備「' + device.name + '（' + device.id + '）」嗎？')) return;
+
             devices = devices.filter(d => d.id !== id);
+            addLog('delete', device.id, device.name, '刪除設備，原狀態：' + (device.status==='pending'?'待維修':'維修完畢'));
+
             saveToStorage();
             renderTable();
+            showToast('已刪除');
         }
 
+        // ========== 設置 Modal ==========
+        function openSettings() {
+            document.getElementById('settingOrgName').value = settings.orgName || '';
+            document.getElementById('settingCenterName').value = settings.centerName || '';
+            document.getElementById('settingUserName').value = settings.userName || '';
+            document.getElementById('settingDefaultLocation').value = settings.defaultLocation || '';
+            document.getElementById('settingsOverlay').classList.add('active');
+        }
+
+        function closeSettings() {
+            document.getElementById('settingsOverlay').classList.remove('active');
+        }
+
+        function saveSettings() {
+            const userName = document.getElementById('settingUserName').value.trim();
+
+            settings = {
+                orgName: document.getElementById('settingOrgName').value.trim(),
+                centerName: document.getElementById('settingCenterName').value.trim(),
+                userName: userName,
+                defaultLocation: document.getElementById('settingDefaultLocation').value.trim()
+            };
+            saveSettingsToStorage();
+            initSettings();
+            closeSettings();
+            showToast('設置已儲存！');
+
+            if (!userName) {
+                setTimeout(() => {
+                    alert('⚠️ 提醒：您尚未設置「操作人姓名」，操作記錄將顯示為「未知用戶」。建議盡快補充。');
+                }, 500);
+            }
+        }
+
+        // ========== 資料匯出/匯入 ==========
+        function exportData() {
+            const data = {
+                exportDate: new Date().toISOString(),
+                settings: settings,
+                devices: devices,
+                logs: logs
+            };
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = '設備維修資料備份_' + new Date().toISOString().split('T')[0] + '.json';
+            link.click();
+            showToast('資料已備份！');
+        }
+
+        function importData(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.devices && Array.isArray(data.devices)) {
+                        if (confirm('確定要還原資料嗎？這將覆蓋現有資料（設備：' + data.devices.length + ' 筆，記錄：' + (data.logs ? data.logs.length : 0) + ' 條）')) {
+                            devices = data.devices;
+                            if (data.settings) {
+                                settings = data.settings;
+                                saveSettingsToStorage();
+                                initSettings();
+                            }
+                            if (data.logs) {
+                                logs = data.logs;
+                                saveLogsToStorage();
+                                updateLogCount();
+                            }
+                            saveToStorage();
+                            renderTable();
+                            showToast('資料還原成功！');
+                        }
+                    } else {
+                        alert('資料格式不正確');
+                    }
+                } catch (err) {
+                    alert('無法讀取檔案：' + err.message);
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+
+        function clearAllData() {
+            if (!confirm('⚠️ 警告：這將清空所有設備資料及操作記錄！
+
+確定要繼續嗎？')) return;
+            if (!confirm('再次確認：所有 ' + devices.length + ' 筆資料及 ' + logs.length + ' 條記錄將被永久刪除，無法復原。
+
+確定清空？')) return;
+            devices = [];
+            logs = [];
+            saveToStorage();
+            saveLogsToStorage();
+            renderTable();
+            updateLogCount();
+            showToast('資料已清空');
+        }
+
+        // ========== Excel 匯出 ==========
         function exportToExcel() {
             const headers = ['設備編號', '設備名稱', '類型', '位置', '故障描述', '報修日期', '維修日期', '狀態', '備註'];
             const rows = devices.map(d => [
@@ -884,13 +1335,30 @@
             link.click();
         }
 
-        // 點擊 modal 外部關閉
+        // ========== 事件監聽 ==========
         document.getElementById('modalOverlay').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });
 
-        // 初始化
+        document.getElementById('settingsOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeSettings();
+        });
+
+        document.getElementById('logOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeLogModal();
+        });
+
+        // ========== 初始化 ==========
+        initSettings();
         renderTable();
+        updateLogCount();
+
+        // 首次使用提示
+        if (!settings.userName) {
+            setTimeout(() => {
+                showToast('請點擊「設置」填寫您的姓名，以便記錄操作');
+            }, 1000);
+        }
     </script>
 </body>
 </html>
