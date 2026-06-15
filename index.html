@@ -27,7 +27,6 @@
             border-radius: 12px;
             margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            position: relative;
         }
 
         header h1 {
@@ -38,28 +37,6 @@
         header p {
             opacity: 0.9;
             font-size: 15px;
-        }
-
-        .settings-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 14px;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .settings-btn:hover {
-            background: rgba(255,255,255,0.3);
         }
 
         .stats-bar {
@@ -76,6 +53,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             text-align: center;
             transition: transform 0.2s;
+            cursor: pointer;
         }
 
         .stat-card:hover { transform: translateY(-2px); }
@@ -136,7 +114,6 @@
         .btn-warning { background: #d69e2e; color: white; }
         .btn-danger { background: #e53e3e; color: white; }
         .btn-secondary { background: #718096; color: white; }
-        .btn-info { background: #4299e1; color: white; }
         .btn-purple { background: #805ad5; color: white; }
 
         .filter-group {
@@ -384,34 +361,6 @@
             color: #718096;
         }
 
-        .settings-section {
-            background: #f7fafc;
-            padding: 16px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .settings-section h3 {
-            font-size: 16px;
-            color: #2d3748;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .settings-section p {
-            font-size: 13px;
-            color: #718096;
-            margin-bottom: 12px;
-        }
-
-        .data-actions {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
         .device-id {
             font-family: monospace;
             font-weight: 600;
@@ -420,17 +369,6 @@
             padding: 2px 8px;
             border-radius: 4px;
             font-size: 13px;
-        }
-
-        .user-info {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255,255,255,0.15);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            margin-top: 8px;
         }
 
         .log-entry {
@@ -486,13 +424,8 @@
         .log-complete { background: #c6f6d5; color: #276749; }
         .log-reopen { background: #feebc8; color: #975a16; }
 
-        .required-label::after {
-            content: " *";
-            color: #e53e3e;
-        }
-
         @media print {
-            .controls, .action-btns, .modal-overlay, header p, .settings-btn, .user-info {
+            .controls, .action-btns, .modal-overlay, header p {
                 display: none !important;
             }
 
@@ -515,7 +448,6 @@
             .filter-group { justify-content: center; }
             th, td { padding: 10px 8px; font-size: 13px; }
             .action-btns { flex-direction: column; }
-            .settings-btn { position: static; margin-top: 10px; }
             header { padding: 20px; }
             .log-time { min-width: auto; }
             .log-entry { flex-direction: column; }
@@ -549,14 +481,8 @@
 <body>
     <div class="container">
         <header>
-            <h1 id="pageTitle">🔧 設備維修清單管理系統</h1>
-            <p id="pageSubtitle">設備維修記錄</p>
-            <div class="user-info" id="userInfo" style="display:none;">
-                <span>👤</span> <span id="userNameDisplay"></span>
-            </div>
-            <button class="settings-btn" onclick="openSettings()">
-                <span>⚙️</span> 設置
-            </button>
+            <h1>🔧 設備維修清單管理系統</h1>
+            <p>設備維修記錄</p>
         </header>
 
         <div class="stats-bar">
@@ -572,7 +498,7 @@
                 <div class="stat-label">設備總數</div>
                 <div class="stat-number" id="totalCount">0</div>
             </div>
-            <div class="stat-card logs" onclick="openLogModal()" style="cursor:pointer;">
+            <div class="stat-card logs" onclick="openLogModal()">
                 <div class="stat-label">操作記錄</div>
                 <div class="stat-number" id="logCount">0</div>
             </div>
@@ -708,69 +634,6 @@
         </div>
     </div>
 
-    <!-- 設置 Modal -->
-    <div class="modal-overlay" id="settingsOverlay">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>⚙️ 系統設置</h2>
-                <button class="modal-close" onclick="closeSettings()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="settings-section">
-                    <h3>🏢 機構資料</h3>
-                    <p>設置您的機構名稱，顯示在頁面頂部</p>
-                    <div class="form-group">
-                        <label>機構名稱</label>
-                        <input type="text" id="settingOrgName" placeholder="例如：澳門展智服務協會">
-                    </div>
-                    <div class="form-group">
-                        <label>中心/部門名稱</label>
-                        <input type="text" id="settingCenterName" placeholder="例如：啟智早期訓練中心">
-                    </div>
-                </div>
-
-                <div class="settings-section">
-                    <h3>👤 用戶資料 <span style="color:#e53e3e;font-size:13px;">（必填，用於記錄操作）</span></h3>
-                    <p>請輸入您的名字，所有操作（新增、編輯、刪除）都會記錄操作人</p>
-                    <div class="form-group">
-                        <label class="required-label">操作人姓名</label>
-                        <input type="text" id="settingUserName" placeholder="例如：陳大文">
-                    </div>
-                </div>
-
-                <div class="settings-section">
-                    <h3>📍 預設設置</h3>
-                    <p>新增設備時的預設值，加快輸入速度</p>
-                    <div class="form-group">
-                        <label>預設位置</label>
-                        <input type="text" id="settingDefaultLocation" placeholder="例如：辦公室">
-                    </div>
-                </div>
-
-                <div class="settings-section">
-                    <h3>💾 資料管理</h3>
-                    <p>備份或還原您的設備資料，每台電腦資料獨立儲存</p>
-                    <div class="data-actions">
-                        <button class="btn btn-info" onclick="exportData()">
-                            <span>💾</span> 備份資料
-                        </button>
-                        <button class="btn btn-warning" onclick="document.getElementById('importFile').click()">
-                            <span>📥</span> 還原資料
-                        </button>
-                        <input type="file" id="importFile" style="display:none" accept=".json" onchange="importData(event)">
-                        <button class="btn btn-danger" onclick="clearAllData()">
-                            <span>🗑️</span> 清空資料
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeSettings()">取消</button>
-                <button class="btn btn-primary" onclick="saveSettings()">儲存設置</button>
-            </div>
-        </div>
-    </div>
-
     <!-- 操作記錄 Modal -->
     <div class="modal-overlay" id="logOverlay">
         <div class="modal" style="max-width:800px;">
@@ -804,7 +667,6 @@
     <script>
         // ========== 資料管理 ==========
         let devices = JSON.parse(localStorage.getItem('repairDevices')) || [];
-        let settings = JSON.parse(localStorage.getItem('repairSettings')) || {};
         let logs = JSON.parse(localStorage.getItem('repairLogs')) || [];
         let currentFilter = 'all';
         let editingId = null;
@@ -813,28 +675,22 @@
             localStorage.setItem('repairDevices', JSON.stringify(devices));
         }
 
-        function saveSettingsToStorage() {
-            localStorage.setItem('repairSettings', JSON.stringify(settings));
-        }
-
         function saveLogsToStorage() {
             localStorage.setItem('repairLogs', JSON.stringify(logs));
         }
 
         // ========== 操作記錄 ==========
         function addLog(action, deviceId, deviceName, detail) {
-            const userName = settings.userName || '未知用戶';
             const log = {
                 id: Date.now() + Math.random().toString(36).substr(2, 9),
                 timestamp: new Date().toISOString(),
-                user: userName,
+                user: '系統',
                 action: action,
                 deviceId: deviceId || '-',
                 deviceName: deviceName || '-',
                 detail: detail || ''
             };
             logs.unshift(log);
-            // 最多保留 500 條記錄
             if (logs.length > 500) logs = logs.slice(0, 500);
             saveLogsToStorage();
             updateLogCount();
@@ -891,7 +747,6 @@
                         <div class="log-time">${formatLogTime(log.timestamp)}</div>
                         <div class="log-content">
                             <div>
-                                <span class="log-user">${log.user}</span>
                                 <span class="log-action">${getActionLabel(log.action)}</span>
                                 <span class="log-badge ${getActionBadgeClass(log.action)}">${getActionLabel(log.action)}</span>
                             </div>
@@ -919,10 +774,9 @@
                 alert('暫無記錄可匯出');
                 return;
             }
-            const headers = ['時間', '操作人', '操作類型', '設備編號', '設備名稱', '詳情'];
+            const headers = ['時間', '操作類型', '設備編號', '設備名稱', '詳情'];
             const rows = logs.map(l => [
                 formatLogTime(l.timestamp),
-                l.user,
                 getActionLabel(l.action),
                 l.deviceId,
                 l.deviceName,
@@ -951,24 +805,6 @@
             showToast('記錄已清空');
         }
 
-        // ========== 初始化設置 ==========
-        function initSettings() {
-            if (settings.orgName) {
-                document.getElementById('pageTitle').innerHTML = '🔧 ' + (settings.orgName || '設備維修清單管理系統');
-            }
-            if (settings.centerName) {
-                document.getElementById('pageSubtitle').textContent = 
-                    (settings.orgName || '') + (settings.orgName && settings.centerName ? ' · ' : '') + (settings.centerName || '') + ' · 設備維修記錄';
-            }
-            if (settings.userName) {
-                document.getElementById('userNameDisplay').textContent = settings.userName;
-                document.getElementById('userInfo').style.display = 'inline-flex';
-            } else {
-                document.getElementById('userInfo').style.display = 'none';
-            }
-            updateLogCount();
-        }
-
         // ========== 工具函數 ==========
         function generateId() {
             const prefix = 'DEV';
@@ -989,19 +825,6 @@
             toast.textContent = msg;
             toast.classList.add('show');
             setTimeout(() => toast.classList.remove('show'), 3000);
-        }
-
-        function getCurrentUser() {
-            return settings.userName || '未知用戶';
-        }
-
-        function checkUserName() {
-            if (!settings.userName) {
-                alert('請先點擊右上角「設置」，填寫您的「操作人姓名」，這樣才能記錄是誰做的操作。');
-                openSettings();
-                return false;
-            }
-            return true;
         }
 
         // ========== 渲染表格 ==========
@@ -1080,17 +903,11 @@
 
         // ========== 設備 Modal ==========
         function openModal() {
-            if (!checkUserName()) return;
             editingId = null;
             document.getElementById('modalTitle').textContent = '新增設備';
             document.getElementById('deviceForm').reset();
             document.getElementById('deviceId').value = generateId();
             document.getElementById('reportDate').value = new Date().toISOString().split('T')[0];
-
-            if (settings.defaultLocation) {
-                document.getElementById('location').value = settings.defaultLocation;
-            }
-
             document.getElementById('modalOverlay').classList.add('active');
         }
 
@@ -1099,7 +916,6 @@
         }
 
         function editDevice(id) {
-            if (!checkUserName()) return;
             const device = devices.find(d => d.id === id);
             if (!device) return;
 
@@ -1118,8 +934,6 @@
         }
 
         function saveDevice() {
-            if (!checkUserName()) return;
-
             const id = document.getElementById('deviceId').value.trim();
             const name = document.getElementById('deviceName').value.trim();
 
@@ -1146,7 +960,6 @@
                     const oldDevice = devices[idx];
                     devices[idx] = deviceData;
 
-                    // 記錄編輯操作
                     let detail = [];
                     if (oldDevice.name !== deviceData.name) detail.push('名稱：' + oldDevice.name + ' → ' + deviceData.name);
                     if (oldDevice.status !== deviceData.status) detail.push('狀態：' + (oldDevice.status==='pending'?'待維修':'維修完畢') + ' → ' + (deviceData.status==='pending'?'待維修':'維修完畢'));
@@ -1171,7 +984,6 @@
         }
 
         function toggleStatus(id) {
-            if (!checkUserName()) return;
             const device = devices.find(d => d.id === id);
             if (!device) return;
 
@@ -1192,7 +1004,6 @@
         }
 
         function deleteDevice(id) {
-            if (!checkUserName()) return;
             const device = devices.find(d => d.id === id);
             if (!device) return;
 
@@ -1204,108 +1015,6 @@
             saveToStorage();
             renderTable();
             showToast('已刪除');
-        }
-
-        // ========== 設置 Modal ==========
-        function openSettings() {
-            document.getElementById('settingOrgName').value = settings.orgName || '';
-            document.getElementById('settingCenterName').value = settings.centerName || '';
-            document.getElementById('settingUserName').value = settings.userName || '';
-            document.getElementById('settingDefaultLocation').value = settings.defaultLocation || '';
-            document.getElementById('settingsOverlay').classList.add('active');
-        }
-
-        function closeSettings() {
-            document.getElementById('settingsOverlay').classList.remove('active');
-        }
-
-        function saveSettings() {
-            const userName = document.getElementById('settingUserName').value.trim();
-
-            settings = {
-                orgName: document.getElementById('settingOrgName').value.trim(),
-                centerName: document.getElementById('settingCenterName').value.trim(),
-                userName: userName,
-                defaultLocation: document.getElementById('settingDefaultLocation').value.trim()
-            };
-            saveSettingsToStorage();
-            initSettings();
-            closeSettings();
-            showToast('設置已儲存！');
-
-            if (!userName) {
-                setTimeout(() => {
-                    alert('⚠️ 提醒：您尚未設置「操作人姓名」，操作記錄將顯示為「未知用戶」。建議盡快補充。');
-                }, 500);
-            }
-        }
-
-        // ========== 資料匯出/匯入 ==========
-        function exportData() {
-            const data = {
-                exportDate: new Date().toISOString(),
-                settings: settings,
-                devices: devices,
-                logs: logs
-            };
-            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = '設備維修資料備份_' + new Date().toISOString().split('T')[0] + '.json';
-            link.click();
-            showToast('資料已備份！');
-        }
-
-        function importData(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    const data = JSON.parse(e.target.result);
-                    if (data.devices && Array.isArray(data.devices)) {
-                        if (confirm('確定要還原資料嗎？這將覆蓋現有資料（設備：' + data.devices.length + ' 筆，記錄：' + (data.logs ? data.logs.length : 0) + ' 條）')) {
-                            devices = data.devices;
-                            if (data.settings) {
-                                settings = data.settings;
-                                saveSettingsToStorage();
-                                initSettings();
-                            }
-                            if (data.logs) {
-                                logs = data.logs;
-                                saveLogsToStorage();
-                                updateLogCount();
-                            }
-                            saveToStorage();
-                            renderTable();
-                            showToast('資料還原成功！');
-                        }
-                    } else {
-                        alert('資料格式不正確');
-                    }
-                } catch (err) {
-                    alert('無法讀取檔案：' + err.message);
-                }
-            };
-            reader.readAsText(file);
-            event.target.value = '';
-        }
-
-        function clearAllData() {
-            if (!confirm('⚠️ 警告：這將清空所有設備資料及操作記錄！
-
-確定要繼續嗎？')) return;
-            if (!confirm('再次確認：所有 ' + devices.length + ' 筆資料及 ' + logs.length + ' 條記錄將被永久刪除，無法復原。
-
-確定清空？')) return;
-            devices = [];
-            logs = [];
-            saveToStorage();
-            saveLogsToStorage();
-            renderTable();
-            updateLogCount();
-            showToast('資料已清空');
         }
 
         // ========== Excel 匯出 ==========
@@ -1340,25 +1049,13 @@
             if (e.target === this) closeModal();
         });
 
-        document.getElementById('settingsOverlay').addEventListener('click', function(e) {
-            if (e.target === this) closeSettings();
-        });
-
         document.getElementById('logOverlay').addEventListener('click', function(e) {
             if (e.target === this) closeLogModal();
         });
 
         // ========== 初始化 ==========
-        initSettings();
         renderTable();
         updateLogCount();
-
-        // 首次使用提示
-        if (!settings.userName) {
-            setTimeout(() => {
-                showToast('請點擊「設置」填寫您的姓名，以便記錄操作');
-            }, 1000);
-        }
     </script>
 </body>
 </html>
